@@ -1,5 +1,5 @@
 import Home from './routes/Home.jsx';
-import Shop from './routes/Shop';
+import Shop from './components/shop/Shop';
 import Navigation from './routes/Navigation.jsx';
 import SignIn from './routes/Authentication.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
