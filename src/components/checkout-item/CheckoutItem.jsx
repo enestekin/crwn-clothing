@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { CartContext } from '../../context/cartContext';
-import './CheckoutItem.scss';
+import { CheckoutItemContainer } from './CheckoutItem.styled.js';
 
 const CheckoutItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
@@ -8,7 +8,7 @@ const CheckoutItem = ({ cartItem }) => {
     useContext(CartContext);
 
   return (
-    <div className='checkout-item-container'>
+    <CheckoutItemContainer>
       <div className='image-container'>
         <img src={imageUrl} alt={name} />
       </div>
@@ -29,7 +29,7 @@ const CheckoutItem = ({ cartItem }) => {
       >
         &#10005;
       </div>
-    </div>
+    </CheckoutItemContainer>
   );
 };
 export default CheckoutItem;

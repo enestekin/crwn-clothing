@@ -1,9 +1,10 @@
 import Home from './routes/Home.jsx';
-import Shop from './components/shop/Shop';
+import Category from './routes/Category.jsx';
 import Navigation from './routes/Navigation.jsx';
 import SignIn from './routes/Authentication.jsx';
 import Checkout from './routes/Checkout.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import CategoriesPreview from './routes/CategoriesPreview.jsx';
 
 const router = createBrowserRouter([
   {
@@ -11,14 +12,16 @@ const router = createBrowserRouter([
     element: <Navigation />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'shop', element: <Shop /> },
+      {
+        path: 'shop',
+        children: [
+          { index: true, element: <CategoriesPreview /> },
+          { path: ':category', element: <Category /> },
+        ],
+      },
       { path: 'auth', element: <SignIn /> },
       { path: 'checkout', element: <Checkout /> },
     ],
-  },
-  {
-    path: 'shop',
-    element: <Shop />,
   },
 ]);
 
