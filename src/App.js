@@ -3,10 +3,9 @@ import {
   createUserDocumentFromAuth,
   onAuthStateChangedListener,
 } from '../src/utils/firebase';
-import { getCategoriesAndDocuments } from '../src/utils/firebase';
 import { setCurrentUser } from './store/user/user.action';
-import { setCategoriesArray } from './store/categories/category.action';
 import { useDispatch } from 'react-redux';
+import { fetchCategoriesAsync } from './store/categories/category.action';
 import Home from './routes/Home.jsx';
 import Category from './routes/Category.jsx';
 import Navigation from './routes/Navigation.jsx';
@@ -49,11 +48,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categoriesArray = await getCategoriesAndDocuments();
-      dispatch(setCategoriesArray(categoriesArray));
-    };
-    getCategoriesMap();
+    dispatch(fetchCategoriesAsync());
   }, []);
 
   return <RouterProvider router={router} />;
