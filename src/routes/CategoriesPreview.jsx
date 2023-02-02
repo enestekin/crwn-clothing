@@ -1,10 +1,10 @@
-import CategoryPreview from '../components/category-preview/CategoryPreview';
-import Spinner from '../components/spinner/Spinner';
+import CategoryPreview from "../components/category-preview/CategoryPreview";
+import Spinner from "../components/spinner/Spinner";
 import {
   selectCategoriesMap,
   selectCategoriesIsLoading,
-} from '../store/categories/category.selector.js';
-import { useSelector } from 'react-redux';
+} from "../store/categories/category.selector";
+import { useSelector } from "react-redux";
 
 const CategoriesPreview = () => {
   const categoriesMap = useSelector(selectCategoriesMap);
